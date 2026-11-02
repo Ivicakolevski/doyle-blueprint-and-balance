@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const study = studies[0];
+  const study = studies[0]!;
   return (
     <>
       <section className="relative isolate overflow-hidden">
