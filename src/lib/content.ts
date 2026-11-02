@@ -62,7 +62,7 @@ export type Person = {
 
 export const team: Person[] = [
   {
-    name: "Ivica Kolevski",
+    name: "President",
     title: "President — Doyle Money Tree Enterprises, LLC",
     bio: "Leads the company's overall vision and business development, bringing together its divisions and connecting clients with the professional knowledge they need to move forward.",
     expertise: ["Company leadership", "Business development", "Client relationships"],
