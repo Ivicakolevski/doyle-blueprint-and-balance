@@ -36,7 +36,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto -mt-16 grid max-w-6xl gap-6 px-6 md:grid-cols-2">
+      <section className="relative z-10 mx-auto -mt-16 grid max-w-6xl gap-6 px-6 md:grid-cols-2">
         <Entrance to="/books" img={booksImg} icon={<BookOpen className="h-5 w-5" />} title="Books & Bible Studies" text="Explore our books and teaching resources." cta="Enter the library" />
         <Entrance to="/engineering" img={engImg} icon={<Ruler className="h-5 w-5" />} title="Engineering Services" text="Tell us about your project." cta="Start a project" />
       </section>
