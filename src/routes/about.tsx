@@ -4,6 +4,8 @@ import { team } from "@/lib/content";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "About Us — Doyle Money Tree Enterprises, LLC" },
       { name: "description", content: "Meet the leadership of Doyle Money Tree Enterprises, a Tampa, Florida company bringing together books, Bible studies and professional services." },
       { property: "og:title", content: "About Doyle Money Tree Enterprises" },

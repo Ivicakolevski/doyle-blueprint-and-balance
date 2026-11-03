@@ -11,6 +11,8 @@ import { supportEmail } from "@/lib/content";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Contact — Doyle Money Tree Enterprises, LLC" },
       { name: "description", content: "Get in touch with Doyle Money Tree Enterprises in Tampa, Florida." },
       { property: "og:title", content: "Contact Doyle Money Tree Enterprises" },
