@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep company contact details and leadership content in the shared content module so pages stay consistent.
+- Reference uploaded brand and portrait media through Lovable Assets pointers; the favicon stays a square raster in public for browser compatibility.

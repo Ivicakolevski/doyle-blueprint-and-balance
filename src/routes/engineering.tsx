@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 import engImg from "@/assets/engineering.jpg";
-import { team } from "@/lib/content";
+import { House, Columns3, LandPlot, UtilityPole } from "lucide-react";
 import { submitInquiry } from "@/lib/inquiry.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/engineering")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Engineering Services — Architectural Design & Engineering | Tampa, FL" },
       { name: "description", content: "Coordinated architectural design and civil, structural and MEP engineering services in Tampa, Florida. Tell us about your project." },
       { property: "og:title", content: "Architectural Design & Engineering Solutions" },
@@ -23,10 +25,10 @@ export const Route = createFileRoute("/engineering")({
 });
 
 const services = [
-  { key: "Architectural", title: "Architectural Design", items: ["Residential and commercial design", "New construction", "Home additions and renovations", "Floor plans, elevations and design development", "3D visualization and conceptual design"] },
-  { key: "Structural", title: "Structural Engineering", items: ["Structural design and calculations", "Framing and structural plans", "Decks, additions, garages and other structures", "Structural assessments and design coordination"] },
-  { key: "Civil", title: "Civil Engineering", items: ["Site development coordination", "Grading and drainage design", "Site plans and related documentation", "Coordination with other project professionals"] },
-  { key: "MEP", title: "MEP Engineering", items: ["Mechanical system design", "Electrical plans", "Plumbing design", "Coordinating building systems with architectural and structural plans"] },
+  { icon: House, key: "Architectural", title: "Architectural Design", items: ["Residential and commercial design", "New construction", "Home additions and renovations", "Floor plans, elevations and design development", "3D visualization and conceptual design"] },
+  { icon: Columns3, key: "Structural", title: "Structural Engineering", items: ["Structural design and calculations", "Framing and structural plans", "Decks, additions, garages and other structures", "Structural assessments and design coordination"] },
+  { icon: LandPlot, key: "Civil", title: "Civil Engineering", items: ["Site development coordination", "Grading and drainage design", "Site plans and related documentation", "Coordination with other project professionals"] },
+  { icon: UtilityPole, key: "MEP", title: "MEP Engineering", items: ["Mechanical system design", "Electrical plans", "Plumbing design", "Coordinating building systems with architectural and structural plans"] },
 ];
 
 const steps = [
@@ -67,6 +69,7 @@ function Engineering() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {services.map((s) => (
             <div key={s.key} className="rounded-xl border bg-card p-7">
+              <div className="mb-5 inline-flex h-20 w-20 items-center justify-center rounded-lg bg-secondary text-primary"><s.icon className="h-12 w-12" strokeWidth={1.25} aria-hidden="true" /></div>
               <h3 className="text-2xl">{s.title}</h3>
               <ul className="mt-4 space-y-2 text-muted-foreground">
                 {s.items.map((i) => <li key={i} className="flex gap-2"><span className="text-gold">—</span>{i}</li>)}
@@ -77,7 +80,7 @@ function Engineering() {
         <p className="mt-6 text-sm text-muted-foreground">The exact scope of each service depends on the project, location, applicable requirements and the qualifications of the professionals involved.</p>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6">
+      <section className="mx-auto max-w-6xl px-6 pb-20">
         <h2 className="text-3xl md:text-4xl">Our project process</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-4">
           {steps.map(([t, d], i) => (
@@ -90,24 +93,7 @@ function Engineering() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-3xl md:text-4xl">Meet the Professional Services team</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {team.map((p) => (
-            <div key={p.title} className="rounded-xl border bg-card p-7">
-              <div className="flex items-center gap-4">
-                <div className="grid h-16 w-16 place-items-center rounded-full bg-primary font-display text-xl text-primary-foreground">{p.name[0]}</div>
-                <h3 className="text-xl">{p.title}</h3>
-              </div>
-              <p className="mt-4 text-muted-foreground">{p.bio}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {p.expertise.map((e) => <span key={e} className="rounded-full bg-secondary px-3 py-1 text-xs">{e}</span>)}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="mt-6 text-sm text-muted-foreground">Portfolio and project examples will be added as they become available.</p>
-      </section>
+
 
       <InquiryForm />
     </>

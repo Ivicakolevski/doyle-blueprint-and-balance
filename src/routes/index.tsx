@@ -3,11 +3,13 @@ import { ArrowRight, BookOpen, Ruler } from "lucide-react";
 import tree from "@/assets/tree.jpg";
 import booksImg from "@/assets/books.jpg";
 import engImg from "@/assets/engineering.jpg";
-import { studies, team } from "@/lib/content";
+import { studies } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Doyle Money Tree Enterprises, LLC — Tampa, Florida" },
       { name: "description", content: "One company, two entrances: Books & Bible Studies and Engineering Services, based in Tampa, Florida." },
       { property: "og:title", content: "Doyle Money Tree Enterprises, LLC" },
@@ -18,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const study = studies[0]!;
+  const study = studies[0];
   return (
     <>
       <section className="relative isolate overflow-hidden">
@@ -42,7 +44,7 @@ function Index() {
       </section>
 
       <section className="mx-auto mt-24 grid max-w-6xl gap-10 px-6 md:grid-cols-2">
-        <div className="rounded-xl border bg-card p-8">
+        {study && <div className="rounded-xl border bg-card p-8">
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Featured Bible study</p>
           <h2 className="mt-3 text-3xl">{study.title}</h2>
           <p className="mt-3 text-muted-foreground">{study.summary}</p>
@@ -50,7 +52,7 @@ function Index() {
           <Link to="/books/$slug" params={{ slug: study.slug }} className="mt-6 inline-flex items-center gap-2 font-medium text-primary">
             View the study <ArrowRight className="h-4 w-4" />
           </Link>
-        </div>
+        </div>}
         <div className="rounded-xl border bg-card p-8">
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Professional Services</p>
           <h2 className="mt-3 text-3xl">Architectural design & engineering, coordinated.</h2>
@@ -64,25 +66,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto mt-24 max-w-6xl px-6">
-        <h2 className="text-3xl">The people behind the company</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {team.map((p) => (
-            <div key={p.title} className="flex gap-5 rounded-xl bg-secondary p-6">
-              <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary font-display text-xl text-primary-foreground">
-                {p.name[0]}
-              </div>
-              <div>
-                <p className="font-display text-lg">{p.title}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{p.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <Link to="/about" className="mt-6 inline-flex items-center gap-2 font-medium text-primary">
-          Learn more about us <ArrowRight className="h-4 w-4" />
-        </Link>
-      </section>
+
     </>
   );
 }

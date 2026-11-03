@@ -11,6 +11,8 @@ export const Route = createFileRoute("/books/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
           { title: `${loaderData.title} — Bible Study` },
           { name: "description", content: loaderData.summary },
           { property: "og:title", content: `${loaderData.title} — Bible Study` },
