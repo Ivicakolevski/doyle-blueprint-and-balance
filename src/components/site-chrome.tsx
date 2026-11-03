@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/money-tree-logo.png.asset.json";
+import { supportEmail } from "@/lib/content";
+import { Button } from "@/components/ui/button";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -13,9 +16,7 @@ const nav = [
 export function Logo() {
   return (
     <Link to="/" className="flex items-center gap-3">
-      <span className="grid h-10 w-10 place-items-center rounded-full bg-primary font-display text-lg text-primary-foreground">
-        D
-      </span>
+      <img src={logo.url} alt="Doyle Money Tree logo" width={48} height={64} className="h-16 w-12 shrink-0 object-contain" />
       <span className="leading-tight">
         <span className="block font-display text-lg font-semibold">Doyle Money Tree</span>
         <span className="block text-xs uppercase tracking-[0.18em] text-muted-foreground">
@@ -45,9 +46,9 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
+        <Button variant="ghost" size="icon" className="md:hidden shrink-0" onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
           {open ? <X /> : <Menu />}
-        </button>
+        </Button>
       </div>
       {open && (
         <nav className="flex flex-col gap-1 border-t px-6 py-3 md:hidden">
@@ -87,6 +88,7 @@ export function SiteFooter() {
         </div>
         <div className="text-sm">
           <p className="mb-3 font-medium">Get in touch</p>
+          <a href={`mailto:${supportEmail}`} className="mb-3 block break-all underline underline-offset-4 opacity-90">{supportEmail}</a>
           <Link to="/contact" className="underline underline-offset-4 opacity-90">
             Send us a message
           </Link>

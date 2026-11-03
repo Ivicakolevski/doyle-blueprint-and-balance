@@ -27,15 +27,16 @@ function About() {
         <a href="https://tmt-tc.com" target="_blank" rel="noreferrer" className="rounded-xl border bg-card p-6"><h2 className="text-xl">Trading Strategy Consulting ↗</h2><p className="mt-2 text-sm text-muted-foreground">Stock trading strategy consulting at tmt-tc.com.</p></a>
       </div>
       <h2 className="mt-16 text-3xl">Leadership</h2>
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-12">
         {team.map((p) => (
-          <article key={p.title} className="grid gap-6 rounded-xl bg-secondary p-8 md:grid-cols-[120px_1fr]">
-            <div className="grid h-28 w-28 place-items-center rounded-full bg-primary font-display text-3xl text-primary-foreground">{p.name[0]}</div>
+          <article key={p.title} className="grid gap-6 border-t pt-8 md:grid-cols-[192px_1fr]">
+            <img src={p.photo} alt={p.name} width={192} height={240} className="aspect-[4/5] w-48 rounded-lg object-cover object-top" />
             <div>
-              <h3 className="text-2xl">{p.title}</h3>
-              <p className="mt-3 text-muted-foreground">{p.bio}</p>
-              <p className="mt-4 text-sm"><span className="font-medium">Areas of expertise:</span> {p.expertise.join(" · ")}</p>
-              <p className="mt-1 text-sm"><span className="font-medium">Qualifications:</span> {p.qualifications.join(" · ")}</p>
+              <h3 className="text-2xl">{p.name}</h3>
+              <p className="mt-1 font-medium text-primary">{p.title}</p>
+              <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
+                {p.bio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
             </div>
           </article>
         ))}

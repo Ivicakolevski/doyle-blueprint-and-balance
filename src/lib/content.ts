@@ -1,3 +1,8 @@
+import james from "@/assets/james.jpg.asset.json";
+import nataliia from "@/assets/nataliia.png.asset.json";
+
+export const supportEmail = "info@doylemoneytree.com";
+
 // Placeholder catalogue content — replace with the real titles, descriptions and files.
 export type Book = {
   slug: string;
@@ -55,29 +60,37 @@ export const studies: Study[] = [
 export type Person = {
   name: string;
   title: string;
-  bio: string;
+  bio: string[];
+  photo: string;
   expertise: string[];
   qualifications: string[];
 };
 
 export const team: Person[] = [
   {
-    name: "President",
+    name: "Dr. James Patrick Doyle, Jr.",
     title: "President — Doyle Money Tree Enterprises, LLC",
-    bio: "Leads the company's overall vision and business development, bringing together its divisions and connecting clients with the professional knowledge they need to move forward.",
-    expertise: ["Company leadership", "Business development", "Client relationships"],
-    qualifications: ["Credentials to be added"],
+    photo: james.url,
+    bio: [
+      "Dr. James Patrick Doyle, Jr., is president of Doyle Money Tree Enterprises, LLC. He earned his doctorate from the University of Kansas in 1992 and devoted 37 years to public education, serving as a teacher, principal, middle management administrator, and superintendent of schools. His career provided extensive experience in teaching, organizational leadership, and the responsibilities of guiding schools and serving their communities.",
+      "Following retirement, Dr. Doyle turned his attention to new areas of study and personal growth. He dedicated himself to learning the discipline of professional stock trading while deepening his study of Scripture. These pursuits reflect his continuing commitment to learning, careful analysis, and applying knowledge with purpose.",
+      "His lifelong interest in education also found a new expression in writing materials for Bible study students. Through these works, he seeks to help readers understand biblical teaching, examine the Scriptures for themselves, and consider how God’s Word applies to everyday life.",
+      "As president of Doyle Money Tree Enterprises, Dr. Doyle brings together his background in education, entrepreneurial interests, and Christian faith. His vision is to develop a business that provides useful services and meaningful publications while creating opportunities for others to contribute their knowledge and talents.",
+    ],
+    expertise: ["Education", "Organizational leadership", "Bible study writing"],
+    qualifications: ["Doctorate, University of Kansas (1992)"],
   },
   {
-    name: "Vice President",
+    name: "Nataliia Kulyk",
     title: "Vice President — Professional Services",
-    bio: "Develops and manages the technical services side: architectural design, civil and structural engineering coordination and MEP services — guiding each project from the first conversation through the agreed deliverables.",
-    expertise: [
-      "Architectural design",
-      "Civil & structural coordination",
-      "MEP services",
-      "Project development",
+    photo: nataliia.url,
+    bio: [
+      "Nataliia Kulyk holds a Master’s degree in Computer Science and Automation from Taras Shevchenko National University of Kyiv (2012). With a background in software development and programming, she brings a technology-driven perspective to the architectural and engineering industry.",
+      "She has established professional connections with architects and licensed professional engineers in Poland and across multiple U.S. states. Passionate about innovation and AI integration, Nataliia focuses on bridging artificial intelligence with architectural design and engineering services to develop smarter, more efficient solutions for the built environment.",
     ],
-    qualifications: ["Credentials to be added"],
+    expertise: [
+      "Software development", "AI integration", "Architectural & engineering coordination",
+    ],
+    qualifications: ["Master’s in Computer Science and Automation, Taras Shevchenko National University of Kyiv (2012)"],
   },
 ];

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { supportEmail } from "@/lib/content";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -42,6 +43,7 @@ function Contact() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-4xl md:text-5xl">Contact us</h1>
+      <a href={`mailto:${supportEmail}`} className="mt-4 inline-block break-all text-lg text-primary underline underline-offset-4">{supportEmail}</a>
       <p className="mt-4 text-lg text-muted-foreground">
         Questions about a book or Bible study, or anything else? Send a message. For a building project, use the{" "}
         <Link to="/engineering" hash="inquiry" className="text-primary underline underline-offset-4">project inquiry form</Link>.
